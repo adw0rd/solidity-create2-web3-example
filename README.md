@@ -8,6 +8,8 @@ truffle exec --config=truffle-config.js scripts/predictAddress.js
 
 Debugging:
 
+add `debugger;` anywhere in the script `scripts/predictAddress.js` and run this:
+
 ```
 node inspect `which truffle` exec --config=truffle-config.js scripts/predictAddress.js
 ```
