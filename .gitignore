@@ -1,0 +1,12 @@
+.env
+.env.test
+build
+node_modules/
+package-lock.json
+yarn.lock
+build/
+*.log
+.kdev4/
+*.kdev4
+.DS_Store
+*~
