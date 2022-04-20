@@ -4,11 +4,11 @@ pragma solidity >=0.7.0 <0.9.0;
 import "./D.sol";
 
 contract C {
-    function createDSalted(uint arg) public view returns(address) {
+    function createDSalted(uint arg) public returns(address) {
         // This complicated expression just tells you how the address
         // can be pre-computed. It is just there for illustration.
         // You actually only need ``new D{salt: salt}(arg)``.
-        bytes32 salt = bytes32("test");
+        bytes32 salt = bytes32("12345");
         address predictedAddress = address(uint160(uint(keccak256(abi.encodePacked(
             bytes1(0xff),
             address(this),
@@ -19,8 +19,8 @@ contract C {
             ))
         )))));
 
-        //D d = new D{salt: salt}(arg);
-        //require(address(d) == predictedAddress);
+        D d = new D{salt: salt}(arg);
+        require(address(d) == predictedAddress);
         return predictedAddress;
     }
 }
