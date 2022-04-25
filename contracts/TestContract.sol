@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.7.0 <0.9.0;
 
-
-contract D {
+contract TestContract {
     uint public x;
     constructor(uint a) {
         x = a;
