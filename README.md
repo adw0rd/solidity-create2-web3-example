@@ -1,9 +1,11 @@
 An example of address prediction via `create2`:
 
 ```
-truffle compile
-truffle migrate
-truffle exec --config=truffle-config.js scripts/predictAddress.js
+$ truffle deploy --reset
+$ truffle exec scripts/predictAddress.js
+
+predictedAddress	: 0x0e0ba11898ebef07da013152ec9858038a0995e5 (predicted)
+realAddress		: 0x0e0ba11898ebef07da013152ec9858038a0995e5 (real)
 ```
 
 Debugging:
@@ -11,7 +13,7 @@ Debugging:
 add `debugger;` anywhere in the script `scripts/predictAddress.js` and run this:
 
 ```
-node inspect `which truffle` exec --config=truffle-config.js scripts/predictAddress.js
+node inspect `which truffle` exec scripts/predictAddress.js
 ```
 
 Articles:
