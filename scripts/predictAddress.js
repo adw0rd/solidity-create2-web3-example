@@ -8,11 +8,11 @@ module.exports = async function(callback) {
         const salt = web3.utils.sha3(Math.random().toString(16)).slice(-8);
         function getPredictedAddress(saltHex, factoryAddress, bytecode) {
             const items = [
-                'ff',
-                factoryAddress.slice(2),
-                saltHex.slice(2).toString(),
-                web3.utils.soliditySha3(bytecode).slice(2).toString()
-            ]
+                '0xff',
+                factoryAddress,
+                saltHex,
+                web3.utils.soliditySha3(bytecode)
+            ].map(i => i.slice(2));
             return `0x${web3.utils.soliditySha3(`0x${items.join('')}`).slice(-40)}`;
         }
         const saltHex = web3.eth.abi.encodeParameter('uint256', 12345);
